@@ -4,7 +4,7 @@
 
 CREATE TABLE "user"(
 	id SERIAL PRIMARY KEY,
-	login varchar(16),
+	login varchar(16) ,
 	password varchar(32),
 	nickname varchar(16),
 	name varchar(32),
@@ -16,7 +16,7 @@ CREATE TABLE "user"(
 
 CREATE TABLE "topic"(
 	id serial primary key,
-	user_id integer references "user"(id),
+	user_id integer references "user"(id) on DELETE CASCADE ,
 	theme text,
 	description text,
 	photo_url text,
@@ -26,16 +26,15 @@ CREATE TABLE "topic"(
 
 create table "comment"(
 	id serial primary key,
-	user_id integer references "user"(id),
-	topic_id integer references topic(id),
+	user_id integer references "user"(id) on DELETE CASCADE ,
+	topic_id integer references topic(id) ON DELETE CASCADE ,
 	comment_text text,
 	date_comment date);
 
 CREATE TABLE favorites(
 	id SERIAL PRIMARY KEY,
-	user_id integer references "user"(id),
-	topic_id integer references topic(id));
-
+	user_id integer references "user"(id) on DELETE CASCADE ,
+	topic_id integer references topic(id) on DELETE CASCADE );
 
 CREATE FUNCTION user_pass() RETURNS trigger AS $$
 	BEGIN
@@ -97,4 +96,5 @@ CREATE TRIGGER create_comment
 BEFORE INSERT 
 ON "comment" 
 FOR EACH ROW 
-EXECUTE PROCEDURE create_comment();
+EXECUTE PROCEDURE create_comment()
+

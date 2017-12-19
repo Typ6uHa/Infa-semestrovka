@@ -171,6 +171,14 @@
         <url-pattern>/ajax-comment</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>AjaxDeletePost</servlet-name>
+        <servlet-class>ajax.AjaxDeletePost</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjaxDeletePost</servlet-name>
+        <url-pattern>/ajax-admindeletepost</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>SearchServlet</servlet-name>
         <servlet-class>servlet.SearchServlet</servlet-class>
     </servlet>
@@ -201,10 +209,19 @@
         <filter-name>AuthFilter</filter-name>
         <filter-class>filters.AuthFilter</filter-class>
     </filter>
+
     <filter-mapping>
         <filter-name>AuthFilter</filter-name>
         <servlet-name>ProfileServlet</servlet-name>
         <servlet-name>FavoriteServlet</servlet-name>
         <servlet-name>CreateServlet</servlet-name>
+    </filter-mapping>
+    <filter>
+        <filter-name>CharacterSetFilter</filter-name>
+        <filter-class>filters.CharacterSetFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterSetFilter</filter-name>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 </web-app>

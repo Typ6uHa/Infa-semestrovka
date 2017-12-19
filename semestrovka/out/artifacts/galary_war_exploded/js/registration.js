@@ -1,5 +1,6 @@
 function check(){
 
+
     var nickname = document.getElementById('nickname').value;
     var name = document.getElementById('name').value;
     var surname = document.getElementById('surname').value;
@@ -14,7 +15,7 @@ function check(){
         return false;
     }
 
-    if(/^[a-zA-Z1-9]+$/.test(login) === false) {
+    if(/^[a-zA-Z][a-zA-Z0-9]+$/.test(login) === false) {
         $("#err").append('В логине должны быть только латинские буквы');
         return false;
     }
@@ -23,7 +24,7 @@ function check(){
         return false;
     }
 
-    if(/^[a-zA-Z1-9]+$/.test(nickname) === false) {
+    if(/^[a-zA-Z][a-zA-Z0-9]+$/.test(nickname) === false) {
         $("#err").append('В никнейме должны быть только латинские буквы');
         return false;
     }
@@ -34,6 +35,10 @@ function check(){
 
     if (reg_password !== reg_password2){
         $("#err").append('Повторный пароль введен неверно!');
+        return false;
+    }
+    if (/^[a-zA-Z]+$/.test(city) === false) {
+        $("#err").append('В городе должны быть только латинские буквы');
         return false;
     }
 

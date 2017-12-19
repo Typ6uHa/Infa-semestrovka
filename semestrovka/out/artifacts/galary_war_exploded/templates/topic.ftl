@@ -10,7 +10,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/starHandler.js"></script>
     <script src="../js/delete.js"></script>
-
     <title>${theme}</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -64,7 +63,7 @@
         <div class="col-lg-6 col-lg-offset-3">
             <div class="well row">
             <#if login>
-                Зайдите на сайт, чтобы оставить комментарий
+                Зайдите на сайт, чтобы читать и оставлять комментарий
             <#else>
                 <form method="post">
                     <div class="input-group commentary-input-field bottom-padding" style="width:100%;">

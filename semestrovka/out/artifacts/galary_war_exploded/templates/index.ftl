@@ -9,6 +9,7 @@
     <script src="../js/jquery-3.2.1.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/starHandler.js"></script>
+    <script src="../js/adminDeletePost.js"></script>
 
 <#if current_url == "/">
     <title>Home</title>
@@ -52,6 +53,9 @@
                                     <span class="glyphicon glyphicon-star" id="id" value="${id[i]}"></span>
                                 <#else>
                                     <span class="glyphicon glyphicon-star-empty" id="id" value="${id[i]}"></span>
+                                </#if>
+                                <#if user_role = 1>
+                                    <span class="glyphicon glyphicon-remove" id="id" value="${id[i]}"></span>
                                 </#if>
                             </#if>
                         </font>
